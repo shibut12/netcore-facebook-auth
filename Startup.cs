@@ -21,13 +21,20 @@ namespace netcore_facebook_auth
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            .AddCookie(options =>{
+                options.LoginPath = "/Account/login";
+            })
+            .AddFacebook(facebookOptions => {
+                facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
+                facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
+            });
+
             services.AddMvc();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
@@ -39,13 +46,18 @@ namespace netcore_facebook_auth
                 app.UseExceptionHandler("/Home/Error");
             }
 
+            //Allow file server to serve files from wwwroot
             app.UseStaticFiles();
+            //Allow file server to server files from node_modules
             app.UseStaticFiles(new StaticFileOptions()
             {
                 FileProvider = new PhysicalFileProvider(
                     Path.Combine(Directory.GetCurrentDirectory(), @"node_modules")),
                     RequestPath = new PathString("/vendor")
             });
+
+            //Enable authentication
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
