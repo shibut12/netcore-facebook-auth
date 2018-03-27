@@ -9,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc;
 
 namespace netcore_facebook_auth
 {
@@ -31,6 +33,11 @@ namespace netcore_facebook_auth
                 facebookOptions.AppId = Configuration["Authentication:Facebook:AppId"];
                 facebookOptions.AppSecret = Configuration["Authentication:Facebook:AppSecret"];
             });
+
+            // services.Configure<MvcOptions>(options =>
+            // {
+            //     options.Filters.Add(new RequireHttpsAttribute());
+            // });
 
             services.AddMvc();
         }
