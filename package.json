@@ -1,0 +1,24 @@
+{
+  "name": "netcore-facebook-auth",
+  "version": "1.0.0",
+  "description": "A dot net core starter app to authenticate using facebook identity provider",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shibut12/netcore-facebook-auth.git"
+  },
+  "author": "Shibu Thannikkunnath",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shibut12/netcore-facebook-auth/issues"
+  },
+  "homepage": "https://github.com/shibut12/netcore-facebook-auth#readme",
+  "dependencies": {
+    "bootstrap": "^4.0.0",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.1"
+  }
+}

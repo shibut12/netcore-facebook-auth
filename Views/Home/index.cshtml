@@ -1,12 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <H1>Hello world</H1>
-</body>
-</html>
+@{
+    ViewBag.Title = "Home page";
+}
+
+<div class="row h-100 justify-content-center align-items-center">
+    <div class="Col-md-12">
+        <form action="/Account/Logout" method="post">
+            <button type="submit" class="btn btn-primary">
+                <i class="fa fa-facebook"></i> Login with facebook
+            </button>
+        </form>
+    </div>
+</div>

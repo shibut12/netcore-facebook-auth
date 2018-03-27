@@ -2,7 +2,6 @@
 
 A dot net core starter app to authenticate using facebook identity provider
 
-
 ## How to run
 
 ```shell
